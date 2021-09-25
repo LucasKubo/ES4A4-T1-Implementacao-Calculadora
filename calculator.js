@@ -30,6 +30,9 @@ const calcular = () => {
       case 'x':
         atualizarDisplay(numeroAnterior * numeroAtual);
         break;
+      case '/':
+        atualizarDisplay(numeroAnterior / numeroAtual);
+        break;
       default:
         break;  
     }
