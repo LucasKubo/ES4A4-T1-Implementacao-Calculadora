@@ -26,8 +26,12 @@ const calcular = () => {
         break;
       case '-':
         atualizarDisplay(numeroAnterior - numeroAtual);
-      default:
         break;
+      case 'x':
+        atualizarDisplay(numeroAnterior * numeroAtual);
+        break;
+      default:
+        break;  
     }
   }
 };
