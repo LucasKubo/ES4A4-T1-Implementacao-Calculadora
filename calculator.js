@@ -20,22 +20,8 @@ const calcular = () => {
   if (operacaoPendente()) {
     const numeroAtual = parseFloat(display.textContent);
     novoNumero = true;
-    switch (operador) {
-      case '+':
-        atualizarDisplay(numeroAnterior + numeroAtual);
-        break;
-      case '-':
-        atualizarDisplay(numeroAnterior - numeroAtual);
-        break;
-      case 'x':
-        atualizarDisplay(numeroAnterior * numeroAtual);
-        break;
-      case '/':
-        atualizarDisplay(numeroAnterior / numeroAtual);
-        break;
-      default:
-        break;  
-    }
+    var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
+    atualizarDisplay(resultado);
   }
 };
 
