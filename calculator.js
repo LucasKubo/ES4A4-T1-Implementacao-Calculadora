@@ -66,3 +66,7 @@ const selecionarOperador = (event) => {
 operadores.forEach((operador) =>
   operador.addEventListener('click', selecionarOperador)
 );
+
+//implementando a funcionalidade do botão "="
+
+document.getElementById('=').addEventListener('click', retornarResultado)
