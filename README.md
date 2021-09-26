@@ -10,3 +10,4 @@ Samy Almeida - Visual Studio Code, HTML5, CSS3, JavaScript ES6 <br>
 2 - Abrir o arquivo 'calc.html' no navegador; <br>
 3 - Usar os botões de números e de operadores para realizar os cálculos; <br>
 4 - Apertar o botão de igual ao fim das operações para mostrar o resultado. <br>
+5 - Para limpar a operação atual, atualize a página do navegador: "pressione F5" <br>
