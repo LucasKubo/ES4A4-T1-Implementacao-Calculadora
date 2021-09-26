@@ -1,9 +1,9 @@
 'use strict';
 
 const display = document.getElementById('display'); //tela
-//id *= 'string' --> seleciona todos os ids que contenham a string 'string'
 const numeros = document.querySelectorAll('[id*=tecla]'); //numeros
-const operadores = document.querySelectorAll('[id*=operador]'); //numeros
+const operadores = document.querySelectorAll('[id*=operador]'); //operadores
+//id *= 'string' --> seleciona todos os ids que contenham a string 'string'
 
 //variavel boolean para distinguir os numeros das operações
 let novoNumero = true;
@@ -12,11 +12,12 @@ let numeroAnterior;
 //variavel que guarda o valor do operador
 let operador;
 
-//função que verifica se existe operação pendente
-const operacaoPendente = () => operador != undefined;
+
 
 //função que realiza as operações
 const calcular = () => {
+  //função que verifica se existe operação pendente
+  const operacaoPendente = () => operador != undefined;
   if (operacaoPendente()) {
     const numeroAtual = parseFloat(display.textContent);
     novoNumero = true;
@@ -40,6 +41,7 @@ const inserirNumero = (evento) => atualizarDisplay(evento.target.textContent);
 //adicionar evento de clique em todos os numeros
 numeros.forEach((numero) => numero.addEventListener('click', inserirNumero));
 
+//função disparada ao clicar um operador
 const selecionarOperador = (event) => {
   if (!novoNumero) {
     calcular();
@@ -49,6 +51,23 @@ const selecionarOperador = (event) => {
   }
 };
 //adicionar evento de clique em todos os operadores
-operadores.forEach((operador) =>
-  operador.addEventListener('click', selecionarOperador)
+operadores.forEach((operador) => operador.addEventListener('click', selecionarOperador)
 );
+
+//função disparada ao clicar no botão de igual '='
+const clicarIgual = (evento) => {
+  calcular();
+  novoNumero = true;
+  operador = undefined;
+}
+//evento de clique no botão de igual '='
+document.getElementById('equals').addEventListener('click', clicarIgual);
+
+//função disparada ao clicar no botão de trocar sinal
+const trocarSinal = (evento) => {
+   const sinalTrocado = parseFloat(display.textContent) * -1;
+   display.textContent = '';
+   atualizarDisplay(sinalTrocado);
+}
+//evento de clique no botão de trocar sinal '+/-'
+document.getElementById('signal').addEventListener('click', trocarSinal);
