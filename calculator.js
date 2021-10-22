@@ -12,13 +12,10 @@ let numeroAnterior;
 //variavel que guarda o valor do operador
 let operador;
 
-
-
-//função que realiza as operações
+//função que realiza as operações pegando o numeroAtual (display) e numeroAnterior(calculado por último)
 const calcular = () => {
-  //função que verifica se existe operação pendente
-  const operacaoPendente = () => operador != undefined;
-  if (operacaoPendente()) {
+  //Condição para operação pendente
+  if (operador != undefined) {
     const numeroAtual = parseFloat(display.textContent);
     novoNumero = true;
     var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
@@ -51,23 +48,33 @@ const selecionarOperador = (event) => {
   }
 };
 //adicionar evento de clique em todos os operadores
-operadores.forEach((operador) => operador.addEventListener('click', selecionarOperador)
+operadores.forEach((operador) =>
+  operador.addEventListener('click', selecionarOperador)
 );
 
 //função disparada ao clicar no botão de igual '='
 const clicarIgual = (evento) => {
   calcular();
-  novoNumero = true;
+  novoNumero = false;
   operador = undefined;
-}
+};
 //evento de clique no botão de igual '='
 document.getElementById('equals').addEventListener('click', clicarIgual);
 
 //função disparada ao clicar no botão de trocar sinal
 const trocarSinal = (evento) => {
-   const sinalTrocado = parseFloat(display.textContent) * -1;
-   display.textContent = '';
-   atualizarDisplay(sinalTrocado);
-}
+  const sinalTrocado = parseFloat(display.textContent) * -1;
+  display.textContent = '';
+  atualizarDisplay(sinalTrocado);
+};
 //evento de clique no botão de trocar sinal '+/-'
 document.getElementById('signal').addEventListener('click', trocarSinal);
+
+//função para limpar calculo
+const limparCalculo = () => {
+  display.textContent = '';
+};
+//evento de clique no botão "C"
+document
+  .getElementById('clearcalculus')
+  .addEventListener('click', limparCalculo);
