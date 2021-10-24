@@ -1,0 +1,9 @@
+{
+    "git.allowForcePush": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "git.autofetch": true,
+    "git.enableCommitSigning": true,
+    "git.enableSmartCommit": true,
+    "git.fetchOnPull": true,
+    "git.followTagsWhenSync": true
+}
