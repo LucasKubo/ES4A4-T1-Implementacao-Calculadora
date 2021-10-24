@@ -16,7 +16,11 @@ let operador;
 const calcular = () => {
   //Condição para operação pendente
   if (operador != undefined) {
+<<<<<<< HEAD
     const numeroAtual = parseFloat(display.textContent.replace(',','.'));
+=======
+    const numeroAtual = parseFloat(display.textContent);
+>>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
     novoNumero = true;
     var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
     atualizarDisplay(resultado);
@@ -78,6 +82,7 @@ const limparCalculo = () => {
 document
   .getElementById('clearcalculus')
   .addEventListener('click', limparCalculo);
+<<<<<<< HEAD
 
 const decimalPresente = () => display.textContent.indexOf(',') !== -1;
 const númeroPresente = () => display.textContent.length>0;
@@ -95,3 +100,5 @@ const adicionarVirgula = () => {
 
 //evento de clique no botão de adicionar virgula '.'
 document.getElementById('decimal').addEventListener('click', adicionarVirgula);
+=======
+>>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
