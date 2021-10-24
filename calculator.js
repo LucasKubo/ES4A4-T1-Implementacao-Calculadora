@@ -16,11 +16,7 @@ let operador;
 const calcular = () => {
   //Condição para operação pendente
   if (operador != undefined) {
-<<<<<<< HEAD
     const numeroAtual = parseFloat(display.textContent.replace(',','.'));
-=======
-    const numeroAtual = parseFloat(display.textContent);
->>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
     novoNumero = true;
     var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
     atualizarDisplay(resultado);
@@ -77,16 +73,28 @@ document.getElementById('signal').addEventListener('click', trocarSinal);
 //função para limpar calculo
 const limparCalculo = () => {
   display.textContent = '';
+  operador = undefined;
 };
-//evento de clique no botão "C"
+//evento de clique no botão "C" (limpar calculo)
 document
   .getElementById('clearcalculus')
   .addEventListener('click', limparCalculo);
-<<<<<<< HEAD
 
+//função limpar entrada
+const limparEntrada = () => {
+  display.textContent = '';
+};
+//evento de clique no botão "CE" (limpar entrada)
+document.getElementById('clearentry').addEventListener('click', limparEntrada);
+
+//função que implementa a funcionalidade de backspace
+const limparAlgarismo = (evento) => display.textContent = display.textContent.slice(0, -1);
+//evento de clique em botão de backspace "<<"
+document.getElementById('backspace').addEventListener('click', limparAlgarismo);
+
+//funções que implementam a vírgula e as casas decimais
 const decimalPresente = () => display.textContent.indexOf(',') !== -1;
 const númeroPresente = () => display.textContent.length>0;
-
 //função disparada ao clicar no botão de adicionar virgula
 const adicionarVirgula = () => {
   if(!decimalPresente()){
@@ -97,8 +105,5 @@ const adicionarVirgula = () => {
     }
   }
 }
-
 //evento de clique no botão de adicionar virgula '.'
 document.getElementById('decimal').addEventListener('click', adicionarVirgula);
-=======
->>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
