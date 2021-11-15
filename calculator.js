@@ -1,4 +1,4 @@
-'use strict';
+('use strict');
 
 const display = document.getElementById('display'); //tela
 const numeros = document.querySelectorAll('[id*=tecla]'); //numeros
@@ -110,3 +110,13 @@ const adicionarVirgula = () => {
 
 //evento de clique no botão de adicionar virgula '.'
 document.getElementById('decimal').addEventListener('click', adicionarVirgula);
+
+//função para calcular raiz quadrada
+raizQuadrada = () => {
+  let saida = Math.sqrt(display.textContent);
+  limparEntrada();
+  atualizarDisplay(saida);
+};
+
+//evento de clique no botão de raiz quadrada
+document.getElementById('raiz').addEventListener('click', raizQuadrada);
