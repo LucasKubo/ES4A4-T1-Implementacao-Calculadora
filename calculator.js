@@ -16,11 +16,7 @@ let operador;
 const calcular = () => {
   //Condição para operação pendente
   if (operador != undefined) {
-<<<<<<< HEAD
-    const numeroAtual = parseFloat(display.textContent.replace(',','.'));
-=======
-    const numeroAtual = parseFloat(display.textContent);
->>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
+    const numeroAtual = parseFloat(display.textContent.replace(',', '.'));
     novoNumero = true;
     var resultado = eval(`${numeroAnterior}${operador}${numeroAtual}`);
     atualizarDisplay(resultado);
@@ -48,7 +44,7 @@ const selecionarOperador = (event) => {
     calcular();
     novoNumero = true;
     operador = event.target.textContent;
-    numeroAnterior = parseFloat(display.textContent.replace(',','.'));
+    numeroAnterior = parseFloat(display.textContent.replace(',', '.'));
   }
 };
 //adicionar evento de clique em todos os operadores
@@ -82,23 +78,20 @@ const limparCalculo = () => {
 document
   .getElementById('clearcalculus')
   .addEventListener('click', limparCalculo);
-<<<<<<< HEAD
 
 const decimalPresente = () => display.textContent.indexOf(',') !== -1;
-const númeroPresente = () => display.textContent.length>0;
+const númeroPresente = () => display.textContent.length > 0;
 
 //função disparada ao clicar no botão de adicionar virgula
 const adicionarVirgula = () => {
-  if(!decimalPresente()){
-    if(númeroPresente()){
+  if (!decimalPresente()) {
+    if (númeroPresente()) {
       atualizarDisplay(',');
     } else {
       atualizarDisplay('0,');
     }
   }
-}
+};
 
 //evento de clique no botão de adicionar virgula '.'
 document.getElementById('decimal').addEventListener('click', adicionarVirgula);
-=======
->>>>>>> cee1e775827d87e36cd6f32b25a7f8c64019edb1
