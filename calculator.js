@@ -73,12 +73,27 @@ document.getElementById('signal').addEventListener('click', trocarSinal);
 //função para limpar calculo
 const limparCalculo = () => {
   display.textContent = '';
+  operador = undefined;
 };
-//evento de clique no botão "C"
+//evento de clique no botão "C" (limpar calculo)
 document
   .getElementById('clearcalculus')
   .addEventListener('click', limparCalculo);
 
+//função limpar entrada
+const limparEntrada = () => {
+  display.textContent = '';
+};
+//evento de clique no botão "CE" (limpar entrada)
+document.getElementById('clearentry').addEventListener('click', limparEntrada);
+
+//função que implementa a funcionalidade de backspace
+const limparAlgarismo = (evento) =>
+  (display.textContent = display.textContent.slice(0, -1));
+//evento de clique em botão de backspace "<<"
+document.getElementById('backspace').addEventListener('click', limparAlgarismo);
+
+//funções que implementam a vírgula e as casas decimais
 const decimalPresente = () => display.textContent.indexOf(',') !== -1;
 const númeroPresente = () => display.textContent.length > 0;
 
